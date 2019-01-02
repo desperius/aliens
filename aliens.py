@@ -8,17 +8,17 @@ def run_game():
     pygame.init()
 
     screen = pygame.display.set_mode((800, 600))
-    pygame.display.set_caption('Alien Invasion')
+    pygame.display.set_caption('Alien Pie :)')
 
-    bg_color = (230, 230, 230)
+    bg_color = (0, 255, 0)
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-
-    # Swap buffers
-    pygame.display.flip()
+        # Swap buffers
+        screen.fill(bg_color)
+        pygame.display.flip()
 
 
 run_game()
