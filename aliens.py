@@ -3,21 +3,27 @@
 import sys
 import pygame
 
+from settings import Settings
+from ship import Ship
+
 def run_game():
     """ Starts main loop """
     pygame.init()
 
-    screen = pygame.display.set_mode((800, 600))
-    pygame.display.set_caption('Alien Pie :)')
+    ai_settings = Settings()
 
-    bg_color = (0, 255, 0)
+    screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
+    ship = Ship(screen)
+    pygame.display.set_caption('Alien Pie :)')
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+        screen.fill(ai_settings.bg_color)
+        ship.blitme()
+
         # Swap buffers
-        screen.fill(bg_color)
         pygame.display.flip()
 
 
